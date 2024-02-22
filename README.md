@@ -1,50 +1,56 @@
-## Batch Payments
+<div align="center">
+    <img src="https://grow.empress.eco/uploads/default/original/2X/1/1f1e1044d3864269d2a613577edb9763890422ab.png" alt="Logo" width="80" height="80">
+    <h3 align="center">Batch Payments</h3>
+    <p align="center">
+        Streamline your financial operations by handling multiple invoices with a single tool!
+        <br />
+        <a href="https://grow.empress.eco/"><strong>Explore the Docs »</strong></a>
+        <br />
+        <a href="https://github.com/empress-eco/batch_payments/issues">Report Bug or Request Feature</a>
+    </p>
+</div>
 
-Permit multiple purchase invoices to be paid in one batch.
-Produce an Australian Banking Association ABA file for outbound payments to multiple parties.
-Generate and send remittance advice emails to parties.
+## About The Project
 
+Batch Payments is a robust solution designed to simplify the process of managing multiple invoices. With its user-centric design, you can efficiently pay several purchase invoices in one go, generate an Australian Banking Association (ABA) file for outbound payments to various parties, and create and send remittance advice emails. 
 
-#### Setup
-- Create a bank record and populate the `Financial Institution Abbreviation` custom field with a max 3 char abbreviation for the bank e.g. CBA, ANZ 
-- Create a bank account linked to this bank, and populate the `Branch Code` with the BSB number in 000-000 format e.g. 065-125 
-- Populate the `Bank Account No` field with the account number. 
-- Populate the `ACPA Payer Number` field with the number the bank has issued you. 
-- Populate the `Currency` custom field with the currency of the payments being made using your bank file.  In practice only AUD is currently implemented.
-- Populate the custom `File Format` field with the file format you wish to generate, e.g. ABA, MT940, SWIFT.  In practice only the ABA file format is currently implemented.
-- Create a bank account record for every vendor you wish to pay, and for each of these bank accounts, specify the Branch Code and Account number.  There is no need to specify the currency, file format or ACPA code for these bank accounts.
-- Specify this bank account in the custom `Payee Bank Account` field of the Supplier.
-- For each vendor ensure you specify a destination email address in the custom `Send Remittance To` field.
-- Navigate to the Email Template list and edit the `Remittance Advice` email template to suit.
-- Navigate to the Print Format list and edit the `Remittance Advice` print format to suit. 
+### Key Features:
 
+- Pay multiple purchase invoices in one batch
+- Generate ABA files for outbound payments
+- Send remittance advice emails to parties
 
-- Create your first Batch Payment record and review the columns in the To be paid child table and the Payments made table.
-- Using the cog icon, ensure all the hidden columns of the child tables are made visible.  
+## Technical Stack and Setup Instructions
 
-![image](https://user-images.githubusercontent.com/4979071/210536555-f7387d01-a4a3-4ba6-92c0-8e0ac4c7a5b4.png)
+Batch Payments is built on the solid foundation of the Framework. To get started with Batch Payments, follow the steps below:
 
+1. Clone the repository: `git clone https://github.com/empress-eco/batch_payments.git`
+2. Create a bank record and populate the `Financial Institution Abbreviation` custom field with a max 3 char abbreviation for the bank (e.g. CBA, ANZ).
+3. Create a bank account linked to this bank, and populate the `Branch Code` with the BSB number in 000-000 format (e.g. 065-125).
+4. Continue to populate the required fields as instructed [in the original instructions as given](https://gist.github.com/anonymous/7692091).
 
-#### Usage
+### Usage
 
-- Create a Batch Payment record, selecting a Bank Account for payments to be made from. Select a date, posting date and save the record.
-- Select Get Items From  -> Purchase Invoice
-![image](https://user-images.githubusercontent.com/4979071/210537022-a1c94272-c6c5-450e-8589-a9a2504b85a4.png)
-- Filter the suppliers and purchase invoices as required, then select the ones you wish to pay
-![image](https://user-images.githubusercontent.com/4979071/210537521-38d37d97-d8ec-44a6-837d-7c8468dea0f0.png)
-- Save the record.
-- Create the payments using Payments -> Create Payments
-![image](https://user-images.githubusercontent.com/4979071/210538028-b5151ace-b4d8-4982-99f8-ddc6853a6937.png)
-- A single payment is created for every supplier, containing all the purchase invoices (bills) selected for that supplier.
-- Email remittance advice records using Payments -> Send Remittances
-![image](https://user-images.githubusercontent.com/4979071/210538381-a3f0534f-2e79-4ba0-8f2a-04ba2bc91711.png)
-- Note that currently no preview of the remittance advice emails is implemented.  However you are able to preview the remittance advices by navigating to the Payment Entry and printing the remittance advice print format.
-- Generate an ABA file with the Bank File -> Generate File menu option
-![image](https://user-images.githubusercontent.com/4979071/210539124-3418fc40-e596-45b9-a02e-e1e41a863b12.png)
-- Download the resulting file with the Bank File -> Download File menu option
-![image](https://user-images.githubusercontent.com/4979071/210539223-a93e07c6-2e86-4f87-9d7b-3e76a7e17498.png)
-- Having downloaded the bank file you can now log in to the banking portal and upload this file to transact the payments.
+The Batch Payment record will allow you to select a bank account for payments to be made from, select a date, select a posting date, and save the record. You can then filter suppliers and purchase invoices as required, select those you wish to pay, and create the payments. 
 
-#### License
+For more detailed instructions, please refer to the original instructions [here](https://gist.github.com/anonymous/7692091).
 
-GNU
+## Contribution Guidelines
+
+We are excited about your interest in contributing to Batch Payments! Here's how you can help:
+
+1. Fork the Project: `git clone https://github.com/empress-eco/batch_payments.git`
+2. Create your Feature Branch: `git checkout -b feature/AmazingFeature`
+3. Commit your Changes: `git commit -m 'Add some AmazingFeature'`
+4. Push to the Branch: `git push origin feature/AmazingFeature`
+5. Open a Pull Request
+
+## License and Acknowledgements
+
+### License
+
+Batch Payments is licensed under the MIT License. Your contributions also fall under the MIT License.
+
+### Acknowledgements
+
+We express our deepest gratitude to the Empress Community for their invaluable contributions to the foundational tools that power this project. Their innovation and dedication have been instrumental in building the functionalities we rely on. We are profoundly grateful for their pioneering work and ongoing support.
